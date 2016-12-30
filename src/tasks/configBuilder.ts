@@ -8,7 +8,12 @@ export function buildAddonConfiguration(options: Config): Config {
     resourceDescription: pkg.description,
     deployDir: 'deploy'
   } as Config;
-  if ((options && options.configFile) || fs.existsSync('sfdcDeploy.json')) {
+
+  if (fs.existsSync('sfdcDeploy.json') && !options.configFile) {
+    options.configFile = 'sfdcDeploy.json';
+  }
+
+  if (options.configFile) {
     var configFile = JSON.parse(fs.readFileSync(options.configFile).toString());
     Object.assign(config, configFile);
   }
