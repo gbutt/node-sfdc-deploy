@@ -1,0 +1,5 @@
+sfdcDeploy.js
+
+node_modules/
+test/
+yarn.lock
