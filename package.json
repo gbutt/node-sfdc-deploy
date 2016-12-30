@@ -5,7 +5,7 @@
   "main": "dist/main.js",
   "license": "MIT",
   "bin": {
-    "sfdcDeploy": "./bin/sfdcDeploy"
+    "sfdc-deploy": "./bin/sfdc-deploy"
   },
   "scripts": {
     "precompile": "npm run clean",

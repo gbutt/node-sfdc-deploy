@@ -5,7 +5,7 @@ A simple utility that compresses a project into a static resource and deploys it
 ## Install
 
 ```sh
-npm install --save-dev sfdc-deploy
+npm install --save-dev node-sfdc-deploy
 ```
 This will install sfdc-deploy to `node_modules/.bin/sfdc-deploy`.
 
