@@ -14,12 +14,12 @@ This will install sfdc-deploy to `node_modules/.bin/sfdc-deploy`.
 ### package.json scripts
 Add the following scripts to your package.json:
 
-```json
+```
 "scripts": {
   ...
   "compile": "<your build command>",
   "predeploy": "npm run compile",
-  "deploy": "sfdc-deploy --build-dir build --deploy-dir deploy"
+  "deploy": "sfdc-deploy --build-dir <build output directory> --deploy-dir <defaults to deploy>"
   ...
 }
 ```

@@ -29,10 +29,6 @@ describe('packageBuilder', function() {
     fs.writeFileSync('test/tmp/build/test.txt', 'test');
   });
 
-  after(function(){
-    fs.removeSync('test/tmp');
-  });
-
   describe('prepareDeployFolder', function() {
 
     it('should build staticresources folder', function() {

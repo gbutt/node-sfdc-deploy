@@ -19,7 +19,7 @@ describe('validateConfig', function(){
 
   it('should reject invalid config', function(){
     let result = validateConfig({});
-    return expect(result).to.eventually.be.rejectedWith('invalid config: name is missing, deployDir is missing, outDir is missing.');
+    return expect(result).to.eventually.be.rejectedWith('resourceName is missing, deployDir is missing, buildDir is missing.');
   });
 
   it('should resolve valid config', function(){
@@ -28,26 +28,26 @@ describe('validateConfig', function(){
   });
 
   it('should reject if name is missing', function(){
-    let invalidConfig = Object.assign({}, validConfig, {name: undefined});
+    let invalidConfig = Object.assign({}, validConfig, {resourceName: undefined});
     let result = validateConfig(invalidConfig);
-    return expect(result).to.eventually.be.rejectedWith('invalid config: name is missing.');
+    return expect(result).to.eventually.be.rejectedWith('resourceName is missing.');
   });
 
   it('should reject if deployDir is missing', function(){
     let invalidConfig = Object.assign({}, validConfig, {deployDir: undefined});
     let result = validateConfig(invalidConfig);
-    return expect(result).to.eventually.be.rejectedWith('invalid config: deployDir is missing.');
+    return expect(result).to.eventually.be.rejectedWith('deployDir is missing.');
   });
 
-  it('should reject if outDir is missing', function(){
-    let invalidConfig = Object.assign({}, validConfig, {outDir: undefined});
+  it('should reject if buildDir is missing', function(){
+    let invalidConfig = Object.assign({}, validConfig, {buildDir: undefined});
     let result = validateConfig(invalidConfig);
-    return expect(result).to.eventually.be.rejectedWith('invalid config: outDir is missing.');
+    return expect(result).to.eventually.be.rejectedWith('buildDir is missing.');
   });
 
-  it('should reject if outDir does not exist', function(){
-    let invalidConfig = Object.assign({}, validConfig, {outDir: 'fakeDir'});
+  it('should reject if buildDir does not exist', function(){
+    let invalidConfig = Object.assign({}, validConfig, {buildDir: 'fakeDir'});
     let result = validateConfig(invalidConfig);
-    return expect(result).to.eventually.be.rejectedWith('invalid config: outDir "fakeDir" does not exist.');
+    return expect(result).to.eventually.be.rejectedWith('buildDir "fakeDir" does not exist.');
   });
 });

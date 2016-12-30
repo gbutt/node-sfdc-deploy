@@ -22,10 +22,6 @@ describe('preparePackage', function() {
     fs.writeFileSync('test/tmp/build/test.txt', 'test');
   });
 
-  after(function(){
-    fs.removeSync('test/tmp');
-  });
-
   it('should build package structure', function() {
     let result = preparePackage(testConfig)
     .then(()=>{
@@ -34,7 +30,8 @@ describe('preparePackage', function() {
       exists = exists && fs.existsSync( path.resolve(testConfig.deployDir, 'src/staticresources', 'testName.resource-meta.xml') );
       exists = exists && fs.existsSync( path.resolve(testConfig.deployDir, 'src', 'package.xml') );
       return exists;
-    });
+    })
+    ;
 
     return expect(result).to.eventually.be.true;
 

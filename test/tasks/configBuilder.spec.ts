@@ -8,8 +8,8 @@ describe('configBuilder', () => {
 
         it('should build default config', () => {
             let config = buildAddonConfiguration(undefined);
-            expect(config.resourceName).to.equal('sfdc-deploy');
-            expect(config.resourceDescription).to.equal('sfdc-deploy');
+            expect(config.resourceName).to.equal('node-sfdc-deploy');
+            expect(config.resourceDescription).to.equal('Deploys a project to Salesforce as a static resource');
             expect(config.deployDir).to.eq('deploy');
         });
 
