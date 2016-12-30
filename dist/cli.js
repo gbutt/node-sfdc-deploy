@@ -20,6 +20,7 @@ var cli = (function () {
             .option('--resource-description [resourceDescription]', 'Static Resource description')
             .option('--poll-interval [pollInterval]', 'JSForce poll-interval', parseInt)
             .option('--poll-timeout [pollTimeout]', 'JSForce poll-timeout', parseInt)
+            .option('--skip-deploy [skipDeploy]', 'creates the static resource, but does not depoy to Salesforce')
             .version(pkg.version)
             .parse(process.argv);
         var config = {
@@ -34,7 +35,8 @@ var cli = (function () {
             resourceName: program['resourceName'],
             resourceDescription: program['resourceDescription'],
             pollInterval: program['pollInterval'],
-            pollTimeout: program['pollTimeout']
+            pollTimeout: program['pollTimeout'],
+            skipDeploy: program['skipDeploy']
         };
         Object.keys(config).forEach(function (key) {
             if (config[key] === undefined) {

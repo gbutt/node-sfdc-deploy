@@ -11,4 +11,5 @@ export interface Config {
     configFile?: string;
     deployDir?: string;
     buildDir?: string;
+    skipDeploy?: boolean;
 }

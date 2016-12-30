@@ -8,6 +8,16 @@ export function run(options: Config): Promise<boolean> {
 
     return tasks.validateConfig(addonConfig)
     .then(() => tasks.preparePackage(addonConfig))
-    .then(()=> tasks.promptForCredentials(addonConfig))
-    .then(()=> tasks.deployPackageDirectory(addonConfig));
+    .then(()=> {
+        if (addonConfig.skipDeploy) {
+            return Promise.resolve();
+        }
+        return tasks.promptForCredentials(addonConfig)
+    })
+    .then(()=> {
+        if (addonConfig.skipDeploy) {
+            return Promise.resolve(true);
+        }
+        return tasks.deployPackageDirectory(addonConfig)
+    });
 }

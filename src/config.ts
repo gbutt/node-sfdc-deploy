@@ -10,5 +10,6 @@ export interface Config {
   noPrompt?: boolean,
   configFile?: string,
   deployDir?: string,
-  buildDir?: string
+  buildDir?: string,
+  skipDeploy?: boolean,
 }

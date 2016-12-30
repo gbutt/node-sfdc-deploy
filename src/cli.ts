@@ -20,6 +20,7 @@ export default class cli {
            .option('--resource-description [resourceDescription]', 'Static Resource description')
            .option('--poll-interval [pollInterval]', 'JSForce poll-interval', parseInt)
            .option('--poll-timeout [pollTimeout]', 'JSForce poll-timeout', parseInt)
+           .option('--skip-deploy [skipDeploy]', 'creates the static resource, but does not depoy to Salesforce')
            .version(pkg.version)
            .parse(process.argv);
 
@@ -36,6 +37,7 @@ export default class cli {
       resourceDescription: program['resourceDescription'],
       pollInterval: program['pollInterval'],
       pollTimeout: program['pollTimeout'],
+      skipDeploy: program['skipDeploy'],
     };
 
     Object.keys(config).forEach((key: string) => {
